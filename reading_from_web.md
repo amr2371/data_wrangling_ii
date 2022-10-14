@@ -153,6 +153,14 @@ water_df =
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+water_df = 
+  GET("https://data.cityofnewyork.us/resource/ia2d-e54m.json") %>% 
+  content("text") %>% 
+  jsonlite::fromJSON() %>% 
+  as_tibble()
+```
+
+``` r
 brfss_df = 
   GET(
     "https://chronicdata.cdc.gov/resource/acme-vg9e.csv",

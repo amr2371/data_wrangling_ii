@@ -133,6 +133,12 @@ water_df =
   GET("https://data.cityofnewyork.us/resource/ia2d-e54m.csv") %>% 
   content("parsed")
 
+
+water_df = 
+  GET("https://data.cityofnewyork.us/resource/ia2d-e54m.json") %>% 
+  content("text") %>% 
+  jsonlite::fromJSON() %>% 
+  as_tibble()
 ```
 
 ```{r}
